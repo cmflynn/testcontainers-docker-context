@@ -1,0 +1,13 @@
+version: '3.8'
+
+# this is what i want to do in testcontainers. mount a dir higher than the dockerfile to its build context 
+services:
+  app:
+    image: some-app
+    build:
+      context: ../
+      dockerfile: app_module/Dockerfile
+    entrypoint:
+      - "/bin/bash"
+      - "-c"
+      - "while true; do sleep 1000; done"
